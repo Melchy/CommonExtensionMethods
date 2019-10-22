@@ -28,7 +28,6 @@ namespace ExtensionMethods
             return new List<T>(){item};
         }
 
-
         public static void ForEach<T>(this IEnumerable<T> enumerable, Action<T> action)
         {
             if(enumerable == null) throw new ArgumentNullException(nameof(enumerable));
@@ -41,7 +40,7 @@ namespace ExtensionMethods
         public static async Task ForEachAsync<T>(this IEnumerable<T> enumerable, Func<T, Task> action)
         {
             if(enumerable == null) throw new ArgumentNullException(nameof(enumerable));
-            List<Task> tasks = new List<Task>();
+            var tasks = new List<Task>();
             foreach (var x in enumerable)
             {
                 tasks.Add(action(x));
@@ -56,15 +55,16 @@ namespace ExtensionMethods
 
         [return:MaybeNull]
         public static TValue GetOrDefault<TKey,TValue>(this IDictionary<TKey,TValue> source, [NotNull] TKey key)
-        { 
+        {
             var exists = source.TryGetValue(key, out var value);
             return exists ? value : default(TValue);
         }
+
         public static TValue Get<TKey, TValue>(this IDictionary<TKey, TValue> source, [NotNull]TKey key)
         {
             return source[key];
         }
-        
+
         public static bool TryGet<TKey, TValue>(this IDictionary<TKey, TValue> source, [NotNull] TKey key, out TValue result)
         {
             return source.TryGetValue(key, out result);
