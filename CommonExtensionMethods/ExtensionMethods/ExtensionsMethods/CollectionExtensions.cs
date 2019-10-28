@@ -52,14 +52,16 @@ namespace ExtensionMethods
         {
             return enumerable == null || !enumerable.Any();
         }
-
+        
+#pragma warning disable CS8653
         [return:MaybeNull]
         public static TValue GetOrDefault<TKey,TValue>(this IDictionary<TKey,TValue> source, [NotNull] TKey key)
         {
             var exists = source.TryGetValue(key, out var value);
             return exists ? value : default(TValue);
         }
-
+#pragma warning restore CS8653
+        
         public static TValue Get<TKey, TValue>(this IDictionary<TKey, TValue> source, [NotNull]TKey key)
         {
             return source[key];
