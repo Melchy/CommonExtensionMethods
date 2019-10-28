@@ -8,7 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Melchy.Clock" Version="1.0.0" />
+        <PackageReference Include="Melchy.Clock" Version="2.0.1" />
         <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.4" />
         <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
     </ItemGroup>

@@ -1,6 +1,5 @@
 ﻿﻿using System;
- using ClockNS;
-
+ 
  namespace ExtensionMethods
 {
     public static class DateTimeExtensions
