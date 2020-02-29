@@ -389,4 +389,4 @@ MigrationBackup/
 
 obj/
 
-/.idea/**
+/src/.idea/**
