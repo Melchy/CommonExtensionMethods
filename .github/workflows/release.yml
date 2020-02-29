@@ -28,9 +28,8 @@ jobs:
     steps:
       needs: build
       runs-on: ubuntu-latest
-      steps:
-      - uses: actions/checkout@v2
-      - name: pack the nuget
-        run: dotnet pack --configuration Release
-      - name: release package
-        run: dotnet nuget push **/*.nupkg --api-key ${{secrets.nuget}} --source https://api.nuget.org/v3/index.json
+    - uses: actions/checkout@v2
+    - name: pack the nuget
+      run: dotnet pack --configuration Release
+    - name: release package
+      run: dotnet nuget push **/*.nupkg --api-key ${{secrets.nuget}} --source https://api.nuget.org/v3/index.json
