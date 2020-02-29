@@ -8,8 +8,8 @@ on:
       - '*'
 
 jobs:
-  build:
-
+  deploy:
+    needs: build
     runs-on: ubuntu-latest
 
     steps:
@@ -22,14 +22,6 @@ jobs:
       run: |
         cd src/ 
         dotnet build --configuration Release
-    
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v2
     - name: pack the nuget
       run: |
         cd src/
