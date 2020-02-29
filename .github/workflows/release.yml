@@ -22,11 +22,12 @@ jobs:
       run: |
         cd src/ 
         dotnet build --configuration Release
-    runs-on: ubuntu-latest
+    
 
   deploy:
     needs: build
-
+    runs-on: ubuntu-latest
+    
     steps:
     - uses: actions/checkout@v2
     - name: pack the nuget
