@@ -25,9 +25,10 @@ jobs:
     runs-on: ubuntu-latest
 
   deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
     steps:
-      needs: build
-      runs-on: ubuntu-latest
     - uses: actions/checkout@v2
     - name: pack the nuget
       run: dotnet pack --configuration Release
