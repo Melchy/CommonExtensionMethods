@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtensionMethods", "ExtensionMethods\ExtensionMethods.csproj", "{3BD85E15-B371-4EC3-824D-87C581E980F8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonExtensionMethods", "CommonExtensionMethods\CommonExtensionMethods.csproj", "{3BD85E15-B371-4EC3-824D-87C581E980F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

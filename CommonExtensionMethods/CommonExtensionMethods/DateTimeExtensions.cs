@@ -1,6 +1,6 @@
 ﻿﻿using System;
  
- namespace ExtensionMethods
+ namespace CommonExtensionMethods
 {
     public static class DateTimeExtensions
     {
@@ -44,7 +44,7 @@
         }
 
         /// <summary>
-        /// Returns a DateTime with its value set to Now minus the provided TimeSpan value.
+        /// Returns a DateTimeOffset with its value set to Now minus the provided TimeSpan value.
         /// </summary>
         /// <example>
         /// 10.Seconds().AgoUtc()
@@ -57,7 +57,7 @@
         }
 
         /// <summary>
-        /// Returns a DateTime with its value set to Now plus the provided TimeSpan value.
+        /// Returns a DateTimeOffset with its value set to Now plus the provided TimeSpan value.
         /// </summary>
         /// <example>
         /// 10.Seconds().FromNowUtc()

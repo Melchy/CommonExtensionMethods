@@ -1,16 +1,10 @@
 ﻿﻿using System;
 using System.Globalization;
-using Newtonsoft.Json;
 
-namespace ExtensionMethods
+namespace CommonExtensionMethods
 {
     public static class StringExtensions
     {
-        public static T FromJson<T>(this string input)
-        {
-            return JsonConvert.DeserializeObject<T>(input);
-        }
-
         public static string CapitalizeFirstLetter(this string input)
         {
             if (input.IsEmpty())
@@ -39,7 +33,7 @@ namespace ExtensionMethods
         public static DateTimeOffset ToDateTime(this string input)
         {
             if(input == null) throw new ArgumentNullException(nameof(input));
-            return DateTimeOffset.Parse(input, new CultureInfo("cs-CZ"));
+            return DateTimeOffset.Parse(input, CultureInfo.InvariantCulture);
         }
 
         public static DateTimeOffset ToDateTime(this string input, CultureInfo cultureInfo)
@@ -47,14 +41,14 @@ namespace ExtensionMethods
             if(input == null) throw new ArgumentNullException(nameof(input));
             return DateTimeOffset.Parse(input, cultureInfo);
         }
-        public static bool TryToDateTime(this string input, CultureInfo cultureInfo, out DateTimeOffset result)
+        public static bool TryToDateTime(this string input, IFormatProvider formatProvider, out DateTimeOffset result)
         {
-            return DateTimeOffset.TryParse(input, cultureInfo, DateTimeStyles.None, out result);
+            return DateTimeOffset.TryParse(input, formatProvider, DateTimeStyles.None, out result);
         }
 
         public static bool TryToDateTime(this string input, out DateTimeOffset result)
         {
-            return DateTimeOffset.TryParse(input,new CultureInfo("cs-CZ"), DateTimeStyles.None, out result);
+            return DateTimeOffset.TryParse(input, CultureInfo.InvariantCulture, DateTimeStyles.None, out result);
         }
 
         #region numericOperations
