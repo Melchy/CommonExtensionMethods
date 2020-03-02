@@ -5,18 +5,26 @@ namespace CommonExtensionMethods
 {
     public static class StringExtensions
     {
+        public static bool IsNullOrEmpty([NotNullWhen(false)] this string? input)
+        {
+            return string.IsNullOrEmpty(input);
+        }
+
+        public static string RemoveSuffixIfExists(this string input, string suffix)
+        {
+            return input.EndsWith(suffix, StringComparison.InvariantCulture)
+                ? input.Substring(0, input.Length - 10)
+                : input;
+        }
+
         public static string CapitalizeFirstLetter(this string input)
         {
             if (input.IsEmpty())
             {
                 return input;
             }
-            return input;
-        }
 
-        public static bool IsNullOrEmpty(this string input)
-        {
-            return string.IsNullOrEmpty(input);
+            return char.ToUpperInvariant(input[0]) + input[1..];
         }
 
         public static bool IsNullOrWhiteSpace(this string input)
@@ -26,24 +34,30 @@ namespace CommonExtensionMethods
 
         public static bool IsEmpty(this string input)
         {
-            if(input == null) throw new ArgumentNullException(nameof(input));
+            if (input == null) throw new ArgumentNullException(nameof(input));
             return string.IsNullOrEmpty(input);
+        }
+
+        public static byte[] ToUtf8ByteArray(this string input)
+        {
+            return Encoding.UTF8.GetBytes(input);
         }
 
         public static DateTimeOffset ToDateTime(this string input)
         {
-            if(input == null) throw new ArgumentNullException(nameof(input));
+            if (input == null) throw new ArgumentNullException(nameof(input));
             return DateTimeOffset.Parse(input, CultureInfo.InvariantCulture);
         }
 
         public static DateTimeOffset ToDateTime(this string input, CultureInfo cultureInfo)
         {
-            if(input == null) throw new ArgumentNullException(nameof(input));
+            if (input == null) throw new ArgumentNullException(nameof(input));
             return DateTimeOffset.Parse(input, cultureInfo);
         }
-        public static bool TryToDateTime(this string input, IFormatProvider formatProvider, out DateTimeOffset result)
+
+        public static bool TryToDateTime(this string input, CultureInfo cultureInfo, out DateTimeOffset result)
         {
-            return DateTimeOffset.TryParse(input, formatProvider, DateTimeStyles.None, out result);
+            return DateTimeOffset.TryParse(input, cultureInfo, DateTimeStyles.None, out result);
         }
 
         public static bool TryToDateTime(this string input, out DateTimeOffset result)
@@ -51,7 +65,6 @@ namespace CommonExtensionMethods
             return DateTimeOffset.TryParse(input, CultureInfo.InvariantCulture, DateTimeStyles.None, out result);
         }
 
-        #region numericOperations
         public static bool IsNumeric(this string input)
         {
             return decimal.TryParse(input, out _);
@@ -106,6 +119,5 @@ namespace CommonExtensionMethods
         {
             return float.TryParse(input, out result);
         }
-        #endregion
     }
 }
