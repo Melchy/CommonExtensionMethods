@@ -1,7 +1,9 @@
 ﻿﻿using System;
-using System.Globalization;
+ using System.Diagnostics.CodeAnalysis;
+ using System.Globalization;
+ using System.Text;
 
-namespace CommonExtensionMethods
+ namespace CommonExtensionMethods
 {
     public static class StringExtensions
     {
