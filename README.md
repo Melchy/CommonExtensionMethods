@@ -10,7 +10,6 @@ Install nuget [package](https://www.nuget.org/packages/CommonExtensionMethods/)
 
 ```csharp
 
-//Convert variable to list with one element
 //without extension method
 var list = new List(){1};
 //with extension method
