@@ -1,12 +1,15 @@
 # Common extension methods
 
-This project contains many simple common extension methods. These methods can be used to make code more readable.
+This project contains common extension methods. These methods can be used to make code more readable.
+
+## How to use
+
+Install nuget [package](https://www.nuget.org/packages/CommonExtensionMethods/)
 
 ## Examples
 
 ```csharp
 
-//Convert variable to list with one element
 //without extension method
 var list = new List(){1};
 //with extension method
@@ -27,20 +30,12 @@ foreach(var x in enumerable){
 enumerable.ForEach(x=> ...);
 
 
-var dictionary = new Dictionary<string, string>();
+IReadOnlyDictionary<string,string> dictionary = new Dictionary<string, string>();
 //without extension method
 var exists = source.TryGetValue("test", out var value);
 var getOrDefault = exists ? value : default(TValue);
 //with extension method
 var result = dictionary.GetOrDefault("test");
-
-//without extension method
-JsonConvert.DeserializeObject("{}");
-JsonConvert.SerializeObject(new object());
-//with extension method
-"{}".FromJson()
-new object().ToJson();
-
 
 //without extension method
 DateTimeOffset.UtcNow.AddDays(1);
@@ -61,7 +56,3 @@ DateTimeOffset.UtcNow.AddHours(-5)
 
 //and many more
 ```
-
-## How to use
-
-Copy all extension methods into your solution. Copying allows you to add new extension methods and edit the existing.
