@@ -12,10 +12,18 @@
             return string.IsNullOrEmpty(input);
         }
 
+        public static string RemovePrefixIfExists(this string input, string prefix)
+        {
+            return input.StartsWith(prefix, StringComparison.InvariantCulture)
+                ? input.Substring(prefix.Length, input.Length - prefix.Length)
+                : input;
+        }
+        
+        
         public static string RemoveSuffixIfExists(this string input, string suffix)
         {
             return input.EndsWith(suffix, StringComparison.InvariantCulture)
-                ? input.Substring(0, input.Length - 10)
+                ? input.Substring(0, input.Length - suffix.Length)
                 : input;
         }
 
