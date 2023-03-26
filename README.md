@@ -1,3 +1,6 @@
+THIS PACKAGE IS OBSOLETE. USE https://github.com/zzzprojects/Z.ExtensionMethods instead. Z.ExtensionMethods offer very similar functionality with better support.
+
+
 # Common extension methods
 
 This project contains common extension methods. These methods can be used to make code more readable.
